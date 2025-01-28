@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카피바라 go! 전체 정리</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 800px;
+        }
+        .option-card {
+            background-color: #ffffff;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            min-width: 120px;
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+        }
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .option-card.active {
+            background-color: #333;
+            color: #ffffff;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 15px;
+            background-color: #000;
+            color: #fff;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        #iframe-container {
+            display: none;
+            margin: 20px auto;
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ccc;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+    <script>
+        function selectOption(card) {
+            // 모든 카드의 active 클래스 제거
+            document.querySelectorAll('.option-card').forEach(el => el.classList.remove('active'));
+            // 클릭한 카드에 active 클래스 추가
+            card.classList.add('active');
+
+            const iframeContainer = document.getElementById('iframe-container');
+            const iframe = document.getElementById('iframe');
+
+            if (card.textContent === "카피바라 go! apple 다운로드") {
+                // Apple 다운로드 사이트로 이동
+                window.location.href = "https://apps.apple.com/us/app/capybara-go/id6596787726";
+            } else if (card.textContent === "카피바라 go! android 다운로드") {
+                // Android 다운로드 사이트로 이동
+                window.location.href = "https://play.google.com/store/apps/details?id=com.habby.capybara";
+            } else if (card.textContent === "카피바라 go! 디시 마이너 갤러리") {
+                // 디시 마이너 갤러리로 리다이렉트
+                window.location.href = "https://gall.dcinside.com/mgallery/board/lists/?id=capybarago";
+            } else if (card.textContent === "카피바라 go! 공식 디스코드") {
+                // 공식 디스코드로 리다이렉트
+                window.location.href = "https://discord.com/invite/capybarago";
+            } else if (card.textContent === "카피바라 go! 쿠폰 등록 사이트") {
+                // iframe을 통해 사이트 로드
+                iframeContainer.style.display = "block";
+                iframe.src = "https://gift.capybarago.io/?view=pc";
+            } else if (card.textContent === "카피바라 go! 반지 티어표") {
+                // 반지 티어표 블로그 글을 iframe으로 불러옴
+                iframeContainer.style.display = "block";
+                iframe.src = "https://example.com/ring-tier"; // 여기에 반지 티어표 HTML 페이지 URL을 넣으세요.
+            } else if (card.textContent === "카피바라 go! 갑옷 티어표") {
+                // 갑옷 티어표 블로그 글을 iframe으로 불러옴
+                iframeContainer.style.display = "block";
+                iframe.src = "https://example.com/armor-tier"; // 여기에 갑옷 티어표 HTML 페이지 URL을 넣으세요.
+            } else if (card.textContent === "카피바라 go! 무기 티어표") {
+                // 무기 티어표 블로그 글을 iframe으로 불러옴
+                iframeContainer.style.display = "block";
+                iframe.src = "https://example.com/weapon-tier"; // 여기에 무기 티어표 HTML 페이지 URL을 넣으세요.
+            } else if (card.textContent === "카피바라 go! 쿠폰 모음집") {
+                // 쿠폰 모음집 블로그 글을 iframe으로 불러옴
+                iframeContainer.style.display = "block";
+                iframe.src = "https://example.com/coupon-collection"; // 여기에 쿠폰 모음집 HTML 페이지 URL을 넣으세요.
+            } else {
+                // iframe을 숨김
+                iframeContainer.style.display = "none";
+                iframe.src = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>카피바라~</h1>
+    <div class="options-container">
+        <div class="option-card" onclick="selectOption(this)">카피바라 go! apple 다운로드</div>
+        <div class="option-card" onclick="selectOption(this)">카피바라 go! android 다운로드</div>
+        <div class="option-card" onclick="selectOption(this)">카피바라 go! 디시 마이너 갤러리</div>
+        <div class="option-card" onclick="selectOption(this)">카피바라 go! 공식 디스코드</div>
+        <div class="option-card" onclick="selectOption(this)">카피바라 go! 반지 티어표</div>
+        <div class="option-card" onclick="selectOption(this)">카피바라 go! 갑옷 티어표</div>
+        <div class="option-card" onclick="selectOption(this)">카피바라 go! 무기 티어표</div>
+        <div class="option-card" onclick="selectOption(this)">카피바라 go! 쿠폰 모음집</div>
+        <div class="option-card" onclick="selectOption(this)">카피바라 go! 쿠폰 등록 사이트</div>
+    </div>
+    
+    <div id="iframe-container">
+        <iframe id="iframe"></iframe>
+    </div>
+    
+    <div class="footer">
+        문의사항이나 정보 수정 요청은 아래 이메일로 알려주세요. <br>
+        <a href="mailto:sejungim345@gmail.com">sejungim345@gmail.com</a>
+    </div>
+</body>
+</html>
